@@ -1,0 +1,281 @@
+/* ── Reset ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ── Body & layout ─────────────────────────────────────── */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #4a90d9, #357abd);
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.tagline {
+  margin: 8px 0 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+main {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+/* ── Form (Flexbox) ────────────────────────────────────── */
+#note-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+#note-form label {
+  display: none; /* hidden since placeholder exists */
+}
+
+#note-form input[type="text"] {
+  flex: 1 1 200px;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#note-form input[type="text"]:focus {
+  border-color: #4a90d9;
+}
+
+#note-form select {
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+#note-form button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #4a90d9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#note-form button[type="submit"]:hover {
+  background-color: #357abd;
+}
+
+/* ── Error message ─────────────────────────────────────── */
+#error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin: 10px 0 0;
+  min-height: 20px;
+}
+
+/* ── Search ────────────────────────────────────────────── */
+#search-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+}
+
+#search-input:focus {
+  border-color: #4a90d9;
+}
+
+#note-count {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 12px;
+}
+
+/* ── Note cards ────────────────────────────────────────── */
+#notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#notes-list li {
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+#notes-list li .note-content {
+  flex: 1;
+}
+
+#notes-list li .note-text {
+  font-size: 15px;
+  margin: 0 0 6px;
+  word-break: break-word;
+}
+
+#notes-list li .note-meta {
+  font-size: 12px;
+  color: #888;
+}
+
+#notes-list li .note-category {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.category-personal {
+  background-color: #e0f7fa;
+  color: #00838f;
+  border-left: 4px solid #00bcd4;
+}
+
+.category-work {
+  background-color: #fce4ec;
+  color: #c62828;
+  border-left: 4px solid #e53935;
+}
+
+.category-study {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border-left: 4px solid #42a5f5;
+}
+
+#notes-list li button {
+  padding: 6px 12px;
+  font-size: 13px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+#notes-list li button:hover {
+  background-color: #c0392b;
+}
+
+/* ── Clear all button ──────────────────────────────────── */
+#clear-all-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.2s;
+}
+
+#clear-all-btn:hover {
+  background-color: #c0392b;
+}
+
+/* ── No results message ────────────────────────────────── */
+.no-results {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 13px;
+}
+
+/* ── Responsive (screens ≤ 600px) ──────────────────────── */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  main {
+    padding: 0 12px;
+    margin: 20px auto;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  #note-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #note-form input[type="text"],
+  #note-form select,
+  #note-form button[type="submit"] {
+    width: 100%;
+  }
+
+  #notes-list li {
+    flex-direction: column;
+  }
+
+  #notes-list li button {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+}
